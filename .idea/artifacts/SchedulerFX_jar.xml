@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SchedulerFX:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SchedulerFX_jar</output-path>
+    <root id="archive" name="SchedulerFX.jar">
+      <element id="module-output" name="SchedulerFX" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../JavaMail1_4_7/mail.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../JavaMail1_4_7/activation-1.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
