@@ -53,12 +53,10 @@ public class SendEmail {
         } catch (MessagingException var10) {
             System.err.println(var10.getMessage());
         }
-
     }
 
     public boolean sendMessage(String text) {
         boolean result = false;
-
         try {
             Multipart mmp = new MimeMultipart();
             MimeBodyPart bodyPart = new MimeBodyPart();
@@ -68,14 +66,12 @@ public class SendEmail {
                 MimeBodyPart mbr = this.createFileAttachment(FILE_PATH);
                 mmp.addBodyPart(mbr);
             }
-
             this.message.setContent(mmp);
             Transport.send(this.message);
             result = true;
         } catch (MessagingException var6) {
             System.err.println(var6.getMessage());
         }
-
         return result;
     }
 

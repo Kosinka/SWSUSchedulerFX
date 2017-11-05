@@ -9,10 +9,6 @@ import java.util.TimerTask;
 
 public class XtimeController {
 
-    public XtimeController() {
-
-    }
-
     public static String email;
     public static String file;
     public static String note;

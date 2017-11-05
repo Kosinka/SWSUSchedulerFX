@@ -10,7 +10,6 @@ import java.util.TimerTask;
         import javafx.scene.control.TextField;
         import javafx.stage.Stage;
 
-
 public class Controller {
     HashMap hashMap;
     String filepath,email,note;
@@ -59,7 +58,6 @@ public class Controller {
         String email = (String) hashMap.get("email");
         String note = (String) hashMap.get("note");
         System.out.println(email + note + filepath);
-
         new java.util.Timer().schedule(
                 new TimerTask() {
                     public void run() {
@@ -67,7 +65,6 @@ public class Controller {
                     }
                 },
                 300000 );
-
     }
 
     public void SendXMinButton(ActionEvent event) throws IOException {
@@ -89,9 +86,6 @@ public class Controller {
         XtimeController.file = filepath;
         XtimeController.note = note;
         XtimeStage.show();
-
-
-
     }
 
     public void SettingsOK(ActionEvent event) throws IOException {

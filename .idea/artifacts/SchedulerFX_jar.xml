@@ -3,8 +3,11 @@
     <output-path>$PROJECT_DIR$/out/artifacts/SchedulerFX_jar</output-path>
     <root id="archive" name="SchedulerFX.jar">
       <element id="module-output" name="SchedulerFX" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../JavaMail1_4_7/mail.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../JavaMail1_4_7/activation-1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../JavaMail1_4_7/mail.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../JavaMail1_4_7/activation-1.1.jar" path-in-jar="/" />
+      <element id="directory" name="image">
+        <element id="file-copy" path="$PROJECT_DIR$/src/Gerb_SWSU_korona_12.png" />
+      </element>
     </root>
   </artifact>
 </component>
