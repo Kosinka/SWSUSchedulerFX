@@ -1,24 +1,28 @@
 import java.io.*;
-        import java.util.HashMap;
+import java.util.HashMap;
 import java.util.TimerTask;
 
-        import javafx.event.ActionEvent;
-        import javafx.fxml.FXML;
-        import javafx.fxml.FXMLLoader;
-        import javafx.scene.Parent;
-        import javafx.scene.Scene;
-        import javafx.scene.control.TextField;
-        import javafx.stage.Stage;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class Controller {
-    HashMap hashMap;
-    String filepath,email,note;
+    private HashMap hashMap;
+    private String filepath,email,note;
     @FXML
     TextField EmailTextField;
     @FXML
     TextField NoteTextField;
     @FXML
     TextField FileTextField;
+    @FXML
+    Text emailTextid;
 
     public Controller() throws IOException, ClassNotFoundException {
         FileInputStream fis = new FileInputStream("settings");
@@ -46,11 +50,11 @@ public class Controller {
         } else {
             filepath = file;
         }
+
    }
 
 
     public void SendNowButton(ActionEvent event) throws IOException {
-        System.out.println("Send... ");
         EmailSender();
     }
 
@@ -91,7 +95,22 @@ public class Controller {
     public void SettingsOK(ActionEvent event) throws IOException {
         FileOutputStream fos = new FileOutputStream("settings");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
-        hashMap.put("email",EmailTextField.getText());
+        if (EmailCheck(EmailTextField.getText())) {
+            hashMap.put("email",EmailTextField.getText());
+            emailTextid.setText("Email принят");
+            emailTextid.setFill(Color.valueOf("#00000099"));
+            new java.util.Timer().schedule(
+                    new TimerTask() {
+                        public void run() {
+                            emailTextid.setText("Куда отправлять e-mail");
+                        }
+                    },
+                    2000 );
+        } else {
+            emailTextid.setText("Ошибка ввода email.");
+            emailTextid.setFill(Color.valueOf("red"));
+        }
+
         hashMap.put("note",NoteTextField.getText());
         hashMap.put("file",FileTextField.getText());
         String file = (String) hashMap.get("file");
@@ -111,4 +130,27 @@ public class Controller {
         SendEmail sendEmail = new SendEmail(email, "test", filepath);
         sendEmail.sendMessage("Application status: development\n" + note);
     }
+
+    private static boolean EmailCheck(String email){
+        boolean result = false;
+        char[] emailCharArray = email.toCharArray();
+        boolean sobaka = false,to4ka = false;
+        for (int i = 0; i <= emailCharArray.length - 1; i++){
+
+            int sobakaInt = 0, to4kaInt = 0;
+            if (emailCharArray[i] == '@') {
+                sobaka = true;
+                sobakaInt = i;
+            }
+            if (emailCharArray[i] == '.') {
+                to4ka = true;
+                to4kaInt = i;
+            }
+            if((to4kaInt > sobakaInt) && (sobaka && to4ka)){
+                result = true;
+            }
+        }
+        return result;
+    }
+
 }

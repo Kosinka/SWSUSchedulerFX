@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="306.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="306.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
       <AnchorPane prefHeight="121.0" prefWidth="600.0">
          <children>
@@ -39,8 +39,8 @@
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="EmailTextField" layoutX="79.0" layoutY="18.0" prefHeight="25.0" prefWidth="215.0" />
-                  <TextField fx:id="FileTextField" layoutX="79.0" layoutY="69.0" prefHeight="25.0" prefWidth="215.0" />
+                  <TextField fx:id="EmailTextField" layoutX="79.0" layoutY="18.0" prefHeight="25.0" prefWidth="215.0" promptText="Куда отправлять e-mail" />
+                  <TextField fx:id="FileTextField" layoutX="79.0" layoutY="69.0" prefHeight="25.0" prefWidth="215.0" promptText="Путь до файла" />
                   <Button fx:id="IDSettingsOK" layoutX="327.0" layoutY="15.0" mnemonicParsing="false" onAction="#SettingsOK" prefHeight="31.0" prefWidth="256.0" text="Применить изменения" textAlignment="CENTER">
                      <font>
                         <Font size="15.0" />
@@ -51,8 +51,8 @@
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="NoteTextField" layoutX="79.0" layoutY="117.0" prefHeight="25.0" prefWidth="215.0" />
-                  <Text fill="#00000099" layoutX="79.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Куда отправлять e-mail" wrappingWidth="215.00000394880772" />
+                  <TextField fx:id="NoteTextField" layoutX="79.0" layoutY="117.0" prefHeight="25.0" prefWidth="215.0" promptText="Примечание к письму" />
+                  <Text fx:id="emailTextid" fill="#00000099" layoutX="79.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Куда отправлять e-mail" wrappingWidth="215.00000394880772" />
                   <Text fill="#00000099" layoutX="79.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Путь до файла" wrappingWidth="215.00000394880772" />
                   <Text fill="#00000099" layoutX="79.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Примечание к письму" wrappingWidth="215.00000394880772" />
                </children>
