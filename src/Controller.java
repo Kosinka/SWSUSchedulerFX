@@ -127,8 +127,15 @@ public class Controller {
     }
 
     public void EmailSender(){
-        SendEmail sendEmail = new SendEmail(email, "test", filepath);
-        sendEmail.sendMessage("Application status: development\n" + note);
+        new java.util.Timer().schedule(
+                new TimerTask() {
+                    public void run() {
+                        SendEmail sendEmail = new SendEmail(email, "test", filepath);
+                        sendEmail.sendMessage("Application status: development\n" + note);
+                    }
+                },
+                1 );
+
     }
 
     private static boolean EmailCheck(String email){

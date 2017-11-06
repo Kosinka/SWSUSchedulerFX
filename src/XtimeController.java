@@ -51,8 +51,14 @@ public class XtimeController {
     public void XtimeCancelButton(ActionEvent actionEvent) {
         STAGE.close();
     }
-    public void EmailSender(){
-        SendEmail sendEmail = new SendEmail(email, "test", file);
-        sendEmail.sendMessage("Application status: development\n" + note);
+    private void EmailSender(){
+        new java.util.Timer().schedule(
+                new TimerTask() {
+                    public void run() {
+                        SendEmail sendEmail = new SendEmail(email, "test", file);
+                        sendEmail.sendMessage("Application status: development\n" + note);
+                    }
+                },
+                1 );
     }
 }
